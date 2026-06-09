@@ -2,7 +2,12 @@ import { loadEnv, defineConfig } from "@medusajs/utils"
 
 loadEnv(process.env.NODE_ENV || "development", process.cwd())
 
-const required = ["DATABASE_URL", "JWT_SECRET", "COOKIE_SECRET", "STOREFRONT_URL"]
+const required = [
+  "DATABASE_URL", "JWT_SECRET", "COOKIE_SECRET", "STOREFRONT_URL",
+  "STRIPE_API_KEY", "STRIPE_WEBHOOK_SECRET",
+  "PAYPAL_CLIENT_ID", "PAYPAL_CLIENT_SECRET",
+  "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET", "R2_ENDPOINT",
+]
 for (const key of required) {
   if (!process.env[key]) throw new Error(`Missing required env var: ${key}`)
 }
