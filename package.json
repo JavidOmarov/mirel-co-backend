@@ -1,0 +1,25 @@
+{
+  "name": "mirel-co-backend",
+  "version": "1.0.0",
+  "description": "Mirel Co. children's clothing marketplace — Medusa v2 backend",
+  "scripts": {
+    "build": "medusa build",
+    "start": "medusa start",
+    "develop": "medusa develop",
+    "seed": "medusa exec ./src/scripts/seed.ts"
+  },
+  "dependencies": {
+    "@medusajs/medusa": "^2.0.0",
+    "@medusajs/utils": "^2.0.0",
+    "@medusajs/payment-stripe": "^2.0.0",
+    "@medusajs/file-s3": "^2.0.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
