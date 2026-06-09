@@ -18,5 +18,31 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET!,
     },
   },
-  modules: [],
+  modules: [
+    {
+      resolve: "@medusajs/payment-stripe",
+      options: {
+        apiKey: process.env.STRIPE_API_KEY,
+        webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+      },
+    },
+    {
+      resolve: "@medusajs/payment-paypal",
+      options: {
+        clientId: process.env.PAYPAL_CLIENT_ID,
+        clientSecret: process.env.PAYPAL_CLIENT_SECRET,
+        sandbox: process.env.PAYPAL_SANDBOX === "true",
+      },
+    },
+    {
+      resolve: "@medusajs/file-s3",
+      options: {
+        s3_url: process.env.R2_ENDPOINT,
+        bucket: process.env.R2_BUCKET,
+        region: "auto",
+        access_key_id: process.env.R2_ACCESS_KEY_ID,
+        secret_access_key: process.env.R2_SECRET_ACCESS_KEY,
+      },
+    },
+  ],
 })
